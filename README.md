@@ -186,3 +186,7 @@ If the VLM backend fails to load (missing package or wrong API), the pipeline fa
 ## License
 
 **MIT License.** Copyright (c) 2025 snapetech. See [LICENSE](LICENSE) for full terms.
+
+## Security scanning
+
+Run scripts/security-scan-local.sh for local Semgrep Community Edition and applicable Trivy scans. Public GitHub Actions workflows run these scans on changes and weekly, alongside any existing CodeQL workflow. See docs/security-scanning.md for offline setup and updates. Run scripts/install-security-hooks.sh once to enable the staged Semgrep pre-commit hook.
