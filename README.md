@@ -25,6 +25,21 @@ pip install pytesseract opencv-python
 pip install opencv-python llama-cpp-python huggingface-hub
 ```
 
+## Docker
+
+The published image includes Python, NumPy, ffmpeg, and ffprobe. Mount input read-only and an output directory read-write; pass your host UID/GID so generated files belong to you:
+
+```bash
+mkdir -p output
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD:/input:ro" -v "$PWD/output:/output" \
+  ghcr.io/snapetech-org/condensearr:latest \
+  /input/recording.mkv --config /opt/condensearr/condensearr_config.full.json \
+  --out /output/recording.condensed.mkv
+```
+
+For OCR and automatic scorebug detection, build with `--build-arg WITH_OCR=1`; this adds Tesseract, pytesseract, and headless OpenCV. VLM dependencies are not included in the published image.
+
 ## Quick start
 
 ```bash

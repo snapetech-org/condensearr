@@ -1,0 +1,13 @@
+.git
+.github
+.githooks
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+*.mkv
+*.fused.edl
+diagnostics.json
+matrix_out/
+matrix_nba/
