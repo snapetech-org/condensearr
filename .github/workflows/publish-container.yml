@@ -1,3 +1,4 @@
+# ng-runner-policy: private-jit-only-v1
 name: Publish container
 
 on:
@@ -10,7 +11,7 @@ permissions:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(format('{{"group":"ng-shared-main-jit","labels":["self-hosted","linux","x64","ng-shared-main-condensearr","ng-main-run-{0}","gha-{0}-publish"]}}', github.run_id)) }}
     permissions:
       contents: read
       packages: write
